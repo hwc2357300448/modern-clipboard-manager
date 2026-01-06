@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #3b82f6; /* Default Blue-500 */
+    --primary-hover: #2563eb; /* Blue-600 */
+  }
+
+  body {
+    @apply bg-transparent text-slate-200 overflow-hidden font-sans select-none;
+  }
+}
+
+@layer utilities {
+  .drag-region { -webkit-app-region: drag; }
+  .no-drag { -webkit-app-region: no-drag; }
+  /* Custom utility for hover bg using var since tailwind arbitrary values are weird with hover + vars sometimes */
+  .hover-bg-primary:hover { background-color: var(--primary-hover); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
